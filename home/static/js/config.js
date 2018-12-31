@@ -157,9 +157,12 @@
 
 					
 				// IMAGES PATH / URL
-				var option_hero_background_slider_path = [{src:$('#back_img1').val()},{src: $('#back_img2').val()},{src: $('#back_img3').val()}];
-				
-				
+				length = $('.bg_img').length
+				option_hero_background_slider_path = []
+				for (i=0;i<length;i++){
+					option_hero_background_slider_path.push( {src:$('#back_img'+i).val()})
+				}
+
 				
 				// SLIDE DELAY / TIMEOUT IN MS
 				var option_hero_background_slider_delay = 6000;
@@ -211,13 +214,13 @@
 		/** 3.3 HERO CONFIG [ KENBURNS BACKGROUND ]
 		*******************************************************************/
 				
-				
-				
 				// IMAGES PATH / URL
-				var option_hero_background_kenburns_path = [{src:$('#back_img1').val()},{src: $('#back_img2').val()},{src: $('#back_img3').val()}];
-				
-				
-				
+				length = $('.bg_img').length
+				option_hero_background_kenburns_path = []
+				for (i=0;i<length;i++){
+					option_hero_background_kenburns_path.push( {src:$('#back_img'+i).val()})
+				}
+
 				// SLIDE DELAY / TIMEOUT IN MS
 				var option_hero_background_kenburns_delay = 6000;
 				

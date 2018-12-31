@@ -380,7 +380,25 @@ ol.list-default > li
 
 .navigation-main .navbar-brand
 {
-    padding: 0;
+        font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 80px;
+
+    display: block;
+
+    margin: 0;
+    padding: 0 15px;
+
+    cursor: pointer;
+    -webkit-transition: all .1s  linear;
+            transition: all .1s  linear;
+    letter-spacing: .096em;
+    text-transform: uppercase;
+
+    color: #000;
+    font-weight: bold;
+    background: none !important;
 }
 
 .navigation-main .navbar-brand img

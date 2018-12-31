@@ -145,7 +145,7 @@ jQuery(document).ready(function() {
 	
 	// KENBURNS SLIDER BACKGROUND FUNCTION
 	function kenburnsBackground() {
-		
+
 		// INIT VEGAS SLIDESHOW PLUGIN
 		$(".bg-image").vegas({
 			
