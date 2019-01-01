@@ -129,6 +129,25 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+# Emial:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_USE_TLS = True
+#EMAIL_USE_SSL = True
+
+
+#꼭 gmail을 입력해주세요.
+email = 'your@gamil.com'
+email_password = 'yourpassword'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = email
+EMAIL_HOST_PASSWORD = email_password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = email
+
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

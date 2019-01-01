@@ -510,63 +510,59 @@
                 </div>
                 <!-- /HEADER -->
                 <!-- ROW-->
-                <div class="row">
-                    <!-- TAB NAVIGATION -->
-                    <ul class="tab-navigation clearfix scroll-animated-from-bottom">
-                        <!-- TAB NAVIGATION ITEM-1 -->
-                        <li class="active">
-                            <!-- TAB LINK -->
-                            <a href="#contact-data-1" data-toggle="tab">
-                            <span class="ti-comment-alt"></span>Contact Me
-                            </a>
-                            <!-- /TAB LINK -->
-                        </li>
-                        <!-- /TAB NAVIGATION ITEM-1 -->
-                        <!-- TAB NAVIGATION ITEM-2 -->
-
-                        <!-- /TAB NAVIGATION ITEM-2 -->
-                        <!-- TAB NAVIGATION ITEM-3 -->
-                        <li>
-                            <!-- TAB LINK -->
-                            <a href="#contact-data-3" data-toggle="tab">
-                            <span class="ti-vector"></span>Follow Me
-                            </a>
-                            <!-- /TAB LINK -->
-                        </li>
-                        <!-- /TAB NAVIGATION ITEM-3 -->
-                    </ul>
-                    <!-- /TAB NAVIGATION -->
-                </div>
+                {% if data.using_sns %}
+                    <div class="row">
+                        <!-- TAB NAVIGATION -->
+                        <ul class="tab-navigation clearfix scroll-animated-from-bottom">
+                            <!-- TAB NAVIGATION ITEM-1 -->
+                            <li class="active">
+                                <!-- TAB LINK -->
+                                <a href="#contact-data-1" data-toggle="tab">
+                                <span class="ti-comment-alt"></span>Contact Me
+                                </a>
+                                <!-- /TAB LINK -->
+                            </li>
+                            <!-- /TAB NAVIGATION ITEM-1 -->
+                            <!-- TAB NAVIGATION ITEM-3 -->
+                            <li>
+                                <!-- TAB LINK -->
+                                <a href="#contact-data-3" data-toggle="tab">
+                                <span class="ti-vector"></span>Follow Me
+                                </a>
+                                <!-- /TAB LINK -->
+                            </li>
+                            <!-- /TAB NAVIGATION ITEM-3 -->
+                        </ul>
+                        <!-- /TAB NAVIGATION -->
+                    </div>
+                {% endif %}
                 <!-- ROW-->
                 <!-- TAB CONTENT CONTAINER -->
+
                 <div class="tab-content">
                     <!-- TAB CONTENT ITEM-1 -->
                     <div class="tab-pane fade in active" id="contact-data-1">
                         <!-- FORM-->
-                        <form id="contact-form" action="assets/contact.php" method="post" autocomplete="off">
+                        <form method="POST">
+                            {% csrf_token %}
                             <!-- FORM GROUP -->
                             <div class="form-group scroll-animated-from-bottom">
-                                <input type="text" id="contact-form-name" class="form-control" name="name" placeholder="* NAME">
+                                {{ form.name }}
                             </div>
                             <!-- /FORM GROUP -->
                             <!-- FORM GROUP -->
-                            <div class="form-group scroll-animated-from-bottom">
-                                <input type="text" id="contact-form-email" class="form-control" name="email" placeholder="* EMAIL">
+                             <div class="form-group scroll-animated-from-bottom">
+                                {{ form.mail }}
                             </div>
-                            <!-- /FORM GROUP -->
+
                             <!-- FORM GROUP -->
                             <div class="form-group scroll-animated-from-bottom">
-                                <input type="text" id="contact-form-phone" class="form-control" name="phone" placeholder="* PHONE">
-                            </div>
-                            <!-- /FORM GROUP -->
-                            <!-- FORM GROUP -->
-                            <div class="form-group scroll-animated-from-bottom">
-                                <input type="text" id="contact-form-subject" class="form-control" name="subject" placeholder="* SUBJECT">
+                                {{ form.subject }}
                             </div>
                             <!-- /FORM GROUP -->
                             <!-- FORM GROUP -->
                             <div class="form-group button-container scroll-animated-from-bottom">
-                                <input type="text" id="contact-form-message" class="form-control" name="message" placeholder="* MESSAGE">
+                                {{ form.message }}
                                 <!-- BUTTON WRAPPER -->
                                 <div class="button-wrapper">
                                     <button type="submit"><span class="ti-arrow-right"></span></button>
@@ -583,21 +579,27 @@
                     <!-- TAB CONTENT ITEM-3 -->
                     <div class="tab-pane fade" id="contact-data-3">
                         <!-- ROW -->
-                        <div class="row">
-                            <!-- COLUMN -->
+
+                        {% for sns in sns_list %}
+
+                            {% if forloop.counter == 1 or forloop.counter|divisibleby:4 %}
+                                <div class="row">
+                            {% endif %}
+
                             <div class="col-xs-4">
                                 <!-- CONTAINER SOCIAL ITEM -->
                                 <div class="container-social-item">
                                     <!-- CONTAINER ICON -->
                                     <div class="container-icon">
-                                        <span class="ti-facebook"></span>
+
+                                        <span class="{{ sns.sns_type }}"></span>
                                     </div>
                                     <!-- /CONTAINER ICON -->
                                     <!-- CONTAINER DESCRIPTION -->
                                     <div class="container-description">
                                         <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Facebook<span class="ti-new-window"></span></h5>
+                                        <a href="{{ sns.sns_url }}" target="_blank">
+                                            <h5>{{ sns }}<span class="ti-new-window"></span></h5>
                                         </a>
                                         <!-- /LINK -->
                                     </div>
@@ -605,193 +607,16 @@
                                 </div>
                                 <!-- /CONTAINER SOCIAL ITEM -->
                             </div>
-                            <!-- /COLUMN -->
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-google"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Google +<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
+
+                            {% if forloop.counter|divisibleby:3 or forloop.last %}
+                                <div></div>
+
                                 </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-twitter-alt"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Twitter<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                        </div>
-                        <!-- /ROW -->
-                        <!-- ROW -->
-                        <div class="row">
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-instagram"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Instagram<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-linkedin"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>LinkedIn<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-pinterest-alt"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Pinterest<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                        </div>
-                        <!-- /ROW- -->
-                        <!-- ROW -->
-                        <div class="row">
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-youtube"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Youtube<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-github"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Vimeo<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                            <!-- COLUMN -->
-                            <div class="col-xs-4">
-                                <!-- CONTAINER SOCIAL ITEM -->
-                                <div class="container-social-item">
-                                    <!-- CONTAINER ICON -->
-                                    <div class="container-icon">
-                                        <span class="ti-soundcloud"></span>
-                                    </div>
-                                    <!-- /CONTAINER ICON -->
-                                    <!-- CONTAINER DESCRIPTION -->
-                                    <div class="container-description">
-                                        <!-- LINK -->
-                                        <a href="#" target="_blank">
-                                            <h5>Soundcloud<span class="ti-new-window"></span></h5>
-                                        </a>
-                                        <!-- /LINK -->
-                                    </div>
-                                    <!-- /CONTAINER DESCRIPTION -->
-                                </div>
-                                <!-- /CONTAINER SOCIAL ITEM -->
-                            </div>
-                            <!-- /COLUMN -->
-                        </div>
-                        <!-- /ROW -->
+                            {% endif %}
+
+                        {% endfor %}
+
+
                     </div>
                     <!-- /TAB CONTENT ITEM-3 -->
                 </div>

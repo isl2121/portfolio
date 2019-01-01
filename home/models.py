@@ -32,6 +32,7 @@ class Setting (models.Model):
     title = models.CharField('타이틀', max_length=30)
     logo = models.CharField('메인화면로고',max_length=30)
     one_row = models.CharField('1줄',max_length=80)
+    user_mail = models.CharField('이메일', max_length=60)
     skin_type = models.CharField('스킨', max_length=20, choices=Skins_status, default='default.css')
     using_sns = models.BooleanField('SNS 사용여부', default=True )
 
@@ -76,14 +77,14 @@ class About (models.Model):
 
 class Sns (models.Model):
     sns_type_status = (
-        ('ti-facebook', '페이스북'),
-        ('ti-github', '깃허브'),
-        ('ti-youtube', '유튜브'),
-        ('ti-instagram', '인스타그램'),
-        ('ti-twitter-alt', '트위터')
+        ('ti-facebook', 'FaceBook'),
+        ('ti-github', 'Github'),
+        ('ti-youtube', 'Youtube'),
+        ('ti-instagram', 'Instagram'),
+        ('ti-twitter-alt', 'Twitter')
     )
     sns_type = models.CharField('SNS 종류', choices=sns_type_status, max_length=30)
     sns_url = models.CharField('SNS Url', max_length=60)
 
     def __str__(self):
-        return self.sns_url
+        return self.get_sns_type_display()

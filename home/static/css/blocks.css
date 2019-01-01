@@ -1544,13 +1544,6 @@ section .content.bg-black .pagination-custom-1 .cbp-nav-pagination-item::after
     border-radius: 100px;
 }
 
-.block-contact-1 .tab-content form .form-group:nth-child(3)
-{
-	display: none;
-	opacity: 0;
-	pointer-events: none;
-}
-
 .block-contact-1 .tab-content form .form-group.button-container
 {
     margin-bottom: 60px;
@@ -1625,6 +1618,28 @@ section .content.bg-black .pagination-custom-1 .cbp-nav-pagination-item::after
     z-index: 10;
 
     height: 65px;
+    padding-right: 3em;
+    padding-left: 1.9em;
+
+    -webkit-transition: all .3s cubic-bezier(.19, 1, .22, 1);
+            transition: all .3s cubic-bezier(.19, 1, .22, 1);
+    letter-spacing: .02em;
+
+    border: none !important;
+    outline: none !important;
+    background: none;
+    box-shadow: none !important;
+}
+.block-contact-1 .tab-content form .form-group textarea
+{
+    font-family: 'Dosis', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+
+    position: relative;
+    z-index: 10;
+
+    height: 120px;
     padding-right: 3em;
     padding-left: 1.9em;
 
@@ -2295,12 +2310,22 @@ section .content.bg-black .pagination-custom-1 .cbp-nav-pagination-item::after
     background: none;
 }
 
+.block-contact-1.bg-white .tab-content form .form-group textarea
+{
+    color: #fff;
+    background: none;
+}
+
 .block-contact-1.bg-white .tab-content form .form-group input::-webkit-input-placeholder
 {
     color: #fff;
 }
 
 .block-contact-1.bg-white .tab-content form .form-group input::-moz-placeholder
+{
+    color: #fff;
+}
+.block-contact-1.bg-white .tab-content form .form-group textarea::-moz-placeholder
 {
     color: #fff;
 }
