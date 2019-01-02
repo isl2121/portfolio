@@ -49,7 +49,7 @@ class Setting (models.Model):
         return self.title
 
 class Bg_Image(models.Model):
-    setting = models.ForeignKey(Setting, related_name="images", on_delete=models.CASCADE)
+    setting = models.ForeignKey(Setting, related_name="bg_images", on_delete=models.CASCADE)
     photo = ProcessedImageField(
         format='JPEG',
         options={'quality': 90},
@@ -61,6 +61,54 @@ class Bg_Image(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.setting, self.photo)
+
+class Portfolio (models.Model):
+    portfolio_type = (
+        ('image', '이미지형식'),
+    )
+
+    info_type = (
+        ('y', '사용'),
+        ('n', '사용안함')
+    )
+    type = models.CharField('포트폴리오 타입', choices=portfolio_type, max_length=20)
+    main_img = ProcessedImageField(
+        processors=[Thumbnail(346, 346)],
+        format='JPEG',
+        options={'quality': 90},
+    )
+    main_title = models.CharField('제목', max_length=30)
+    sub_title = models.CharField('부제목', max_length=30, blank=True, null=True)
+    content = models.TextField('설명글')
+    used_info = models.CharField('추가설명', max_length=5, default='n', choices=info_type)
+
+    info_title1 = models.CharField('INFO 타이틀1', max_length=30, blank=True, null=True)
+    info_content1 = models.TextField('INFO 내용1', blank=True, null=True)
+    info_title2 = models.CharField('INFO 타이틀2', max_length=30, blank=True, null=True)
+    info_content2 = models.TextField('INFO 내용2', blank=True, null=True)
+    info_title3 = models.CharField('INFO 타이틀3', max_length=30, blank=True, null=True)
+    info_content3 = models.TextField('INFO 내용3', blank=True, null=True)
+    info_url = models.CharField('INFO url', max_length=30, blank=True, null=True)
+
+
+    def __str__(self):
+        return self.main_title
+
+
+class Portfolio_Image(models.Model):
+    portfolio = models.ForeignKey(Portfolio, related_name="portfolio_images", on_delete=models.CASCADE)
+    photo = ProcessedImageField(
+        format='JPEG',
+        options={'quality': 90},
+    )
+    position = models.PositiveSmallIntegerField(default=0)
+
+    class Meta:
+        ordering = ['position']
+
+    def __str__(self):
+        return '%s - %s' % (self.portfolio, self.photo)
+
 
 class About (models.Model):
     title = models.TextField(null=True, blank=True)

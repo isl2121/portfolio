@@ -141,346 +141,49 @@
             <div class="container text-center">
                 <!-- HEADER -->
                 <div class="header text-center scroll-animated-from-bottom">
-                    <h1>Our Work</h1>
+                    <h1>PortFolio</h1>
                 </div>
                 <!-- /HEADER -->
                 <!-- GRID -->
                 <div class="cbp work-grid">
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-minimal-v1-slider.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/1.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Minimal / Slider</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
+                    {% for pf in pf_list %}
+                        <div class="cbp-item">
+                            <!-- CAPTION -->
+                            <a href="{% url 'home:portfolio' pf.id %}" class="cbp-caption cbp-singlePage scroll-animated-from-bottom portfolio_btn">
+                                <!-- CAPTION WRAPPER DEFAULT -->
+                                <div class="cbp-caption-defaultWrap">
+                                    <img src="{{ pf.main_img.url }}">
                                 </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-minimal-v1-image.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/2.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Minimal / Image</p>
+                                <!-- /CAPTION WRAPPER DEFAULT -->
+                                <!-- CAPTION WRAPPER ACTIVE -->
+                                <div class="cbp-caption-activeWrap">
+                                    <!-- CAPTION BODY -->
+                                    <div class="cbp-l-caption-alignCenter">
+                                        <!-- CAPTION BODY INNER -->
+                                        <div class="cbp-l-caption-body">
+                                            <h5 class="hover-animated">{{ pf.main_title }}</h5>
+                                        </div>
+                                        <!-- /CAPTION BODY INNER -->
                                     </div>
-                                    <!-- /CAPTION BODY INNER -->
+                                    <!-- /CAPTION BODY -->
                                 </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-minimal-v1-video.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/3.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Minimal / Video</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-full-page-image.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/4.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Full Page / Image</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-full-page-video.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/5.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Full Page / Video</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="https://www.youtube.com/watch?v=tYry6NHnzVI?&showinfo=0&rel=0&iv_load_policy=3" class="cbp-caption cbp-lightbox scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/6.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Lightbox / YouTube</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="assets/images/popup/showcase/1.jpg" class="cbp-caption cbp-lightbox scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/7.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Lightbox / Image</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/249032833&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" class="cbp-caption cbp-lightbox scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/8.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Lightbox / Soundcloud</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="https://player.vimeo.com/video/119540843?title=0&byline=0&portrait=0" class="cbp-caption cbp-lightbox scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/9.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Lightbox / Vimeo</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="assets/videos/1.mp4" class="cbp-caption cbp-lightbox scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/10.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Lightbox / Video</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-minimal-v2-image.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/11.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Minimal / Image</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
-                    <!-- ITEM -->
-                    <div class="cbp-item">
-                        <!-- CAPTION -->
-                        <a href="pages/ajax/popups/showcases/showcase-popup-minimal-v2-slider.html" class="cbp-caption cbp-singlePage scroll-animated-from-bottom">
-                            <!-- CAPTION WRAPPER DEFAULT -->
-                            <div class="cbp-caption-defaultWrap">
-                                <img src="assets/images/work/12.jpg" alt="work">
-                            </div>
-                            <!-- /CAPTION WRAPPER DEFAULT -->
-                            <!-- CAPTION WRAPPER ACTIVE -->
-                            <div class="cbp-caption-activeWrap">
-                                <!-- CAPTION BODY -->
-                                <div class="cbp-l-caption-alignCenter">
-                                    <!-- CAPTION BODY INNER -->
-                                    <div class="cbp-l-caption-body">
-                                        <h5 class="hover-animated">Showcase Ajax</h5>
-                                        <p class="hover-animated">Minimal / Slider</p>
-                                    </div>
-                                    <!-- /CAPTION BODY INNER -->
-                                </div>
-                                <!-- /CAPTION BODY -->
-                            </div>
-                            <!-- /CAPTION WRAPPER ACTIVE -->
-                        </a>
-                        <!-- /CAPTION -->
-                    </div>
-                    <!-- /ITEM -->
+                                <!-- /CAPTION WRAPPER ACTIVE -->
+                            </a>
+                            <!-- /CAPTION -->
+                        </div>
+                    {% endfor %}
+
                 </div>
                 <!-- /GRID -->
                 <!-- BUTTON LOAD MORE -->
                 <div id="work-loadmore" class="cbp-l-loadMore-button scroll-animated-from-bottom">
-                    <!-- LINK LOAD MORE -->
+                    <!-- LINK LOAD MORE
                     <a href="pages/ajax/loadMore.html" class="cbp-l-loadMore-link load-more"  rel="nofollow">
                     <span class="cbp-l-loadMore-defaultText">Load More</span>
                     <span class="cbp-l-loadMore-loadingText">Loading...</span>
                     <span class="cbp-l-loadMore-noMoreLoading">Done</span>
                     </a>
-                    <!-- /LINK LOAD MORE -->
+                    /LINK LOAD MORE -->
                 </div>
                 <!-- /BUTTON LOAD MORE -->
             </div>

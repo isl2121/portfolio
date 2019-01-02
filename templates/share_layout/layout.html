@@ -60,6 +60,7 @@
          {% block content %}
         {% endblock %}
 
+
         <!-- /MAIN-->
         <!-- JAVASCRIPTS CORE-->
         <script type="text/javascript" src="{% static 'js/plugin/jquery-1.12.4.min.js' %}"></script>
@@ -72,6 +73,8 @@
         <script type="text/javascript" src="{% static 'js/hero.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/blocks.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+        {% block js %}
+        {% endblock %}
     </body>
 </html>
 

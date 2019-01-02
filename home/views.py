@@ -1,8 +1,17 @@
-from django.shortcuts import render
-from .models import Setting, Bg_Image, About, Sns
+from django.shortcuts import render, get_object_or_404
+from .models import Setting, Bg_Image, About, Sns, Portfolio, Portfolio_Image
 from django.core.mail import EmailMessage
 from .forms import mailform
 # Create your views here.
+
+
+def portfolio(request, pk):
+
+    data = Portfolio.objects.prefetch_related('portfolio_images').get(pk=pk)
+
+    return render(request, 'home/ajax/portfolio_info.html', {
+        'data': data
+    })
 
 def main(request):
 
@@ -19,7 +28,7 @@ def main(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
 
-            print(form.cleaned_data, receiver)
+
             message = message + "    메일 :" + mail + "     이름 : " + name
         try:
             email = EmailMessage(subject, message, to=[receiver])
@@ -41,7 +50,21 @@ def main(request):
         except:
             sns_list = None
 
+    try:
+        pf_list = Portfolio.objects.all()
+    except:
+        pf_list = None
+
     abouts = About.objects.all()
 
+    return_data = {
+        'data': data,
+        'bg_img': bg_image,
+        'abouts': abouts,
+        'sns_list': sns_list,
+        'form': form,
+        'pf_list' : pf_list
+    }
 
-    return render(request, 'home/main.html', {'data':data, 'bg_img':bg_image,'abouts':abouts, 'sns_list': sns_list, 'form': form} )
+
+    return render(request, 'home/main.html',  return_data)
