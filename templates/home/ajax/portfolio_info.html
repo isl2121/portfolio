@@ -1,0 +1,119 @@
+{% load static %}
+<!-- SHOWCASE-POPUP -->
+<div class="popup popup-showcase-style-1">
+    <!-- CONTAINER -->
+    <div class="container">
+        <!-- CONTENT -->
+        <div class="content bg-gold">
+            <!-- CONTAINER INTRO -->
+            <div class="container-intro">
+                <!-- ROW -->
+                <div class="row">
+                    <!-- COLUMN -->
+
+                    <div class="col-lg-12">
+                        {% if data.portfolio_images.all|length is not 1 %}
+                        <div class="cbp-slider">
+                            <!-- SLIDER WRAPPER -->
+                            <ul class="cbp-slider-wrap">
+                                {% for image in data.portfolio_images.all %}
+                                    <li class="cbp-slider-item">
+                                        <img class="img-responsive" width="100%" src=" {{ image.photo.url }}" alt="Edit me">
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <!-- /SLIDER WRAPPER -->
+                        </div>
+                        {% else %}
+                            {% for image in data.portfolio_images.all %}
+                                <img class="img-responsive"  width="100%" src=" {{ image.photo.url }}"  alt="Edit me">
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <!-- /COLUMN -->
+                </div>
+                <!-- /ROW -->
+                <!-- ROW -->
+                <div class="row padding-top-60 padding-bot-60">
+                    <!-- COLUMN -->
+                    <div class="col-sm-4 showcase-title text-right">
+                        <h3>{{ data }}</h3>
+                        <p>{{ data.sub_title }}</p>
+                    </div>
+                    <!-- /COLUMN -->
+                    <!-- COLUMN -->
+                    <div class="col-sm-8 showcase-title-text">
+                        <p>
+                            {{ data.content }}
+                        </p>
+                    </div>
+                    <!-- /COLUMN -->
+                </div>
+                <!-- /ROW -->
+            </div>
+            <!-- /CONTAINER INTRO -->
+            <!-- BUTTON DESCRIPTION -->
+            {{ data.used_info }}
+            {% if data.used_info == 'y' %}
+            <div class="button-description">
+                <div class="content-visible">
+                    <span class="ti-info"></span>
+                </div>
+                <!-- /CONTENT VISIBLE -->
+                <!-- CONTENT HIDDEN -->
+                <div class="content-hidden">
+                    <span class="ti-close"></span>
+                </div>
+                <!-- /CONTENT HIDDEN -->
+            </div>
+            <!-- /BUTTON DESCRIPTION -->
+            <!-- CONTAINER INFO -->
+            <div class="container-info">
+                <!-- CONTAINER MID -->
+                <div class="container-mid">
+                    <!-- ITEM LIST -->
+                    <ul>
+                        <!-- ITEM -->
+                        <li>
+                            <h5>{{ data.info_title1 }}</h5>
+                            <p>{{ data.info_content1 }}</p>
+                        </li>
+                        <!-- /ITEM -->
+                        <!-- ITEM -->
+                        <li>
+                            <h5>{{ data.info_title2 }}</h5>
+                            <p>{{ data.info_content2 }}</p>
+                        </li>
+                        <!-- /ITEM -->
+                        <!-- ITEM -->
+                        <li class="last">
+                            <h5>{{ data.info_title3 }}</h5>
+                            <p>
+                                {{ data.info_content3 }}
+                            </p>
+                        </li>
+                        <!-- /ITEM -->
+                        <!-- ITEM -->
+                        <li>
+                            <a href="{{ data.info_url }}" target="_blank">{{ data.info_url }}</a>
+                        </li>
+                        <!-- /ITEM -->
+                    </ul>
+                    <!-- /ITEM LIST -->
+                </div>
+                <!-- /CONTAINER MID -->
+            </div>
+            <!-- /CONTAINER INFO -->
+            {% endif %}
+        </div>
+        <!-- /CONTENT -->
+    </div>
+    <!-- /CONTAINER -->
+</div>
+<!-- /SHOWCASE-POPUP -->
+<!-- BUTTON CLOSE -->
+<div id="popup-close-button-1" class="popup-close-button" data-action="close">
+    <span class="ti-back-left" data-action="close"></span>
+</div>
+<!-- /BUTTON CLOSE -->
+

@@ -36,8 +36,9 @@
         <div id="page-loader">
             <!-- CONTAINER MID -->
             <div class="container-mid">
-                {% if bg_img %}
-                    {% for img in bg_img %}
+
+                {% if data.bg_images.all|length %}
+                    {% for img in data.bg_images.all %}
                         <input type="hidden" class="bg_img" id="back_img{{ img.position }}" value="{{ img.photo.url }}">
                     {% endfor %}
                 {% else %}
@@ -60,6 +61,16 @@
          {% block content %}
         {% endblock %}
 
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <script>
+                    alert('{{ message }}');
+                </script>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
         <!-- /MAIN-->
         <!-- JAVASCRIPTS CORE-->

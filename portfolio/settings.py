@@ -137,8 +137,8 @@ EMAIL_USE_TLS = True
 
 
 #꼭 gmail을 입력해주세요.
-email = 'your@gamil.com'
-email_password = 'yourpassword'
+email = 'jinisl2121@gmail.com'
+email_password = 'Nel54542121'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

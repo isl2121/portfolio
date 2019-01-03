@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Setting, Bg_Image, About, Sns, Portfolio, Portfolio_Image
 from django.core.mail import EmailMessage
+from django.http import HttpResponseRedirect
 from .forms import mailform
+from django.contrib import messages
+
 # Create your views here.
 
 
@@ -15,7 +18,8 @@ def portfolio(request, pk):
 
 def main(request):
 
-    data = Setting.objects.first()
+    data = Setting.objects.prefetch_related('bg_images').first()
+
     form = mailform()
 
     if request.method == 'POST':
@@ -28,21 +32,16 @@ def main(request):
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
 
-
             message = message + "    메일 :" + mail + "     이름 : " + name
         try:
             email = EmailMessage(subject, message, to=[receiver])
             result = email.send()
-            print(email,result)
+            messages.info(request, '메일이 정상적으로 보내졌습니다.')
         except Exception as e:
+            messages.error(request, '메일전송중 문제가 발생했습니다.')
 
-            print(e)
+        return HttpResponseRedirect('')
 
-
-    try:
-        bg_image = Bg_Image.objects.filter(setting=data.id)
-    except:
-        bg_image = None
 
     if data.using_sns:
         try:
@@ -59,7 +58,6 @@ def main(request):
 
     return_data = {
         'data': data,
-        'bg_img': bg_image,
         'abouts': abouts,
         'sns_list': sns_list,
         'form': form,
