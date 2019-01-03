@@ -32,7 +32,7 @@ settings_hosts_common = json.loads(open(settings_hosts).read())
 SECRET_KEY = setting_secret_common['django']['secret_key']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = settings_hosts_common['django']['allowed_hosts']
 
@@ -137,8 +137,8 @@ EMAIL_USE_TLS = True
 
 
 #꼭 gmail을 입력해주세요.
-email = 'jinisl2121@gmail.com'
-email_password = 'Nel54542121'
+email = 'your@gamil.com'
+email_password = 'yourpassword'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
